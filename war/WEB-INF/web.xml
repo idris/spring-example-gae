@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<!-- 
+		Note about load-on-startup: the load actually occurs during the first request handled by the web server instance, not prior to it.
+		(from http://code.google.com/appengine/docs/java/config/webxml.html#web_xml_Features_Not_Supported)
+		 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>springexample</servlet-name>
+		<servlet-class>example.SpringExampleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springexample</servlet-name>
+		<url-pattern>/springexample</url-pattern>
+	</servlet-mapping>
+</web-app>
